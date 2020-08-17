@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
 
   public displayedColumns: string[] = ['title', 'scheduled', 'driver', 'lat', 'lng'];
   public dataSource = new MatTableDataSource();
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {}) paginator: MatPaginator;
 
   constructor(private taskService: TaskService, private driverService: DriverService) {
   }
@@ -33,6 +33,7 @@ export class ListComponent implements OnInit {
     this.driversSub = this.driverService.list();
 
     this.taskSub.subscribe(x => {
+      // @ts-ignore
       this.dataSource.data = x;
       this.dataSource.paginator = this.paginator;
     });

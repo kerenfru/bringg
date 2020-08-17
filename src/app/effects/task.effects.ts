@@ -30,8 +30,7 @@ export class TaskEffects {
   @Effect()
   updateTask$ = this.action$.pipe(
     ofType(fromTask.UPDATE_TASK),
-    switchMap(task => {
-      console.log(task);
+    switchMap((task:any) => {
       return this.apiService.updateTask(task.id, task.changes).pipe(
         map(response => {
           return new fromTask.UpdateTaskSuccess(response);
