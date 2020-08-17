@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+  <div class="details">
+    <div class="picture">
+      <img [src]="picture"/>
+    </div>
+    <div class="text">
+      <div class="name">{{name}}</div>
+      <div class="age">age: {{age}}</div>
+      <div class="age">{{phone}}</div>
+    </div>
+  </div>
+  <div class="actions">
+    <button mat-flat-button color="primary" (click)="clickLocation()">Location</button>
+    <button mat-flat-button color="primary" (click)="remove()">Remove</button>
+  </div>
+</mat-card>

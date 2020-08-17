@@ -1,0 +1,9 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker *ngFor="let driver of driversSub | async"
+    [latitude]="driver.location.latitude"
+    [longitude]="driver.location.longitude"
+    iconHeight="3"
+    iconWidth="3"
+    [iconUrl]="icon">
+  </agm-marker>
+</agm-map>

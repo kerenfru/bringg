@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <div class="filters">
+    <form>
+      <mat-form-field class="example-form-field">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" [(ngModel)]="searchName">
+      </mat-form-field>
+    </form>
+    <div>
+      <span (click)="order === 'name' ? reverse = !reverse : order = 'name'">Name {{reverse && order === 'name' ? '▲' : '▼'}}</span>
+      <span (click)="order === 'age' ? reverse = !reverse : order = 'age'">Age {{reverse && order === 'age' ? '▲' : '▼'}}</span>
+    </div>
+  </div>
+
+  <div class="drivers-container">
+    <app-card *ngFor="let driver of driverSub | async | filter : 'name' : searchName | orderBy: order : reverse"
+              [id]="driver.id"
+              [name]="driver.name"
+              [picture]="driver.picture"
+              [age]="driver.age"
+              [phone]="driver.phone"
+              [location]="driver.location"
+              (locationEvent)="location($event)"
+              (removeEvent)="deleteRecord($event)"
+    >
+    </app-card>
+  </div>
+</div>

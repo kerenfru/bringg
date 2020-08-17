@@ -1,0 +1,18 @@
+.wrapper {
+  height: 100%;
+
+  .drivers-container {
+    height: 90%;
+    overflow: scroll;
+  }
+
+  .filters {
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+
+    mat-form-field {
+      margin: 0 8px;
+    }
+  }
+}

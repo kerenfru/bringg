@@ -1,0 +1,14 @@
+<div class="main">
+  <h1>Welcome to Drivers App</h1>
+  <div class="top">
+    <div class="list">
+      <app-drivers (locationEvent)="setZoom($event)"></app-drivers>
+    </div>
+    <div class="map">
+      <app-map [lat]="this.zoom.latitude" [lng]="this.zoom.longitude"></app-map>
+    </div>
+  </div>
+  <div class="bottom">
+    <app-list></app-list>
+  </div>
+</div>
